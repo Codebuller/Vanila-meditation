@@ -77,7 +77,7 @@ const check = (song:any) =>{
 const reset = () =>{
   play.src = '../public/svg/play.svg';
   elapsed = duration;
-  song.paused;
+  song.pause();
   song.currentTime = 0;
   video.pause();
 }
