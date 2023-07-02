@@ -1,6 +1,3 @@
-import './style.css'
-import { setupCounter } from './counter.ts'
-
 const app = () =>{
   const song: any = document.querySelector('.song');
 const play: any = document.querySelector('.play');
@@ -47,7 +44,7 @@ song.ontimeupdate = () =>{
   if(currentTime >= duration){
     song.paused;
     song.currentTime = 0;
-    play.src = '../public/svg/play.svg';
+    play.src = './svg/play.svg';
     video.pause();
   }
 }
@@ -64,18 +61,18 @@ sounds.forEach((elem)=>{
 })
 const check = (song:any) =>{
   if(song.paused){
-    play.src = '../public/svg/pause.svg';
+    play.src = './svg/pause.svg';
     video.play();
     song.play();
   }
   else{
-    play.src = '../public/svg/play.svg';
+    play.src = './svg/play.svg';
     video.pause();
     song.pause();
   }
 }
 const reset = () =>{
-  play.src = '../public/svg/play.svg';
+  play.src = './svg/play.svg';
   elapsed = duration;
   song.pause();
   song.currentTime = 0;
@@ -84,4 +81,3 @@ const reset = () =>{
 }
 
 app();
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
