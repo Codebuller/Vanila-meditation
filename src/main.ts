@@ -2,7 +2,7 @@ const app = () =>{
   const song: any = document.querySelector('.song');
 const play: any = document.querySelector('.play');
 const outline: any = document.querySelector('.moving-outline circle');
-const video: any = document.querySelector('.vid-container video');
+const video: any = document.querySelector('.video-container video');
 const pickTimeButtons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.time-selector button');
 const sounds: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.sound-picker button');
 

@@ -7,25 +7,26 @@
     <link rel="stylesheet" href="./src/style.css">
   </head>
   <body>
+    <div class="video-container">
+      <video width="1280"  loop="true" height="720" >
+        <source src="./video/rain.mp4"  type="video/mp4">
+      </video>
+    </div>
     <div id="app" class="app">
-
-      <div class="vid-container">
-        <video loop>
-          <source src="./video/rain.mp4">
-        </video>
-      </div>
+    
+     
 
       <div class="time-selector">
-        <button data-time="120">2 Minutes</button>
-        <button data-time="300">5 Minutes</button>
-        <button data-time="600">10 Minutes</button>
+        <button  data-time="120" style="grid-row: 2;">2 Minutes</button>
+        <button  data-time="300" style="grid-row: 4;">5 Minutes</button>
+        <button  data-time="600" style="grid-row: 6;">10 Minutes</button>
       </div>
-
+      
         <div class="player-container">
           <audio class="song">
             <source src="./sounds/rain.mp3">
           </audio>
-          <img src="./svg/play.svg" alt="play" class="play">
+          <img class="play" src="./svg/play.svg" alt="play" class="play">
           <svg 
           class="track-outline"
           width="453"
@@ -62,16 +63,18 @@
         </div>
 
         <div class="sound-picker">
-          <button data-video="./video/rain.mp4" data-sound="./sounds/rain.mp3">
+          <button  style="grid-row: 2;" data-video="./video/rain.mp4" data-sound="./sounds/rain.mp3">
             <img src="./svg/rain.svg" alt="rain">
           </button>
-          <button data-video="./video/beach.mp4" data-sound="./sounds/beach.mp3">
+          <button style="grid-row: 4;" data-video="./video/beach.mp4" data-sound="./sounds/beach.mp3">
             <img src="./svg/beach.svg" alt="beach">
           </button>
 
         </div>
-
+   
+  
     </div>
+    
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
