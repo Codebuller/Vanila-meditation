@@ -29,13 +29,11 @@ justify-items: center;
 .sound-picker button img {
   width: min(100%,15vmax);
   height: min(100%,15vmax);  
-  
-
   background: none;
   cursor: pointer;
- 
   font-size: max(3vw,1em);
 }
+
 .player-container{
   grid-column: 2;
 display: grid;
@@ -56,7 +54,7 @@ justify-items: center;
   grid-row: 2;
   width: max(15%,10vw);
   height: max(15%,10vw);
-  margin-left: 20px;
+  
   position: absolute;
   cursor: pointer;
 }
@@ -107,9 +105,6 @@ justify-items: center;
   cursor: pointer;
   border-radius: 1vmax;
   transform: all 0.5s ease;
-  
- 
-  
 }
 .time-selector button:hover{
   color: black;
@@ -117,4 +112,71 @@ justify-items: center;
 }
 .sound-picker button{
   border: none;
+}
+@media (max-width: 700px) {
+  .app{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 50% 25%;
+  }
+  .time-selector button{
+    color: white;
+    margin-left: 0;
+    margin: 1vw;
+    height: 30%;
+    border-radius: 1vmax;
+    white-space: nowrap;
+    font-size: max(3vw,1em);
+    transform: all 0.5s ease;
+  }
+.time-selector{ 
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  align-items: center; 
+  margin-right: 9vw;
+  margin-left: 9vw;
+  }
+  
+  .sound-picker{
+  grid-row: 3;
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30vw;
+  }
+  
+  .player-container{
+    grid-row: 2;
+    grid-column: 1;
+  align-items: center; 
+  justify-items: center;
+  }
+  .player-container svg{
+    
+    width: 50vh;
+    height: 50vh ;
+    position: absolute;  
+    transform: rotate(-90deg);
+    pointer-events: none;
+  }
+  .play{
+    grid-row: 2;
+    width: max(15%,10vw);
+    height: max(15%,10vw);
+
+    position: absolute;
+    cursor: pointer;
+  }
+  .time-display{
+    position:absolute;
+    bottom: calc(10vh);
+    left: calc(50vw-2em);
+   
+    color: white;
+    font-size: 2em;
+  }
 }

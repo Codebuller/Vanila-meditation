@@ -45,6 +45,7 @@ song.ontimeupdate = () =>{
     song.paused;
     song.currentTime = 0;
     play.src = './svg/play.svg';
+    
     video.pause();
   }
 }
@@ -66,6 +67,7 @@ const check = (song:any) =>{
     song.play();
   }
   else{
+   
     play.src = './svg/play.svg';
     video.pause();
     song.pause();
