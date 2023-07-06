@@ -1,12 +1,23 @@
+window.addEventListener('load', async () =>{
+  if(navigator.serviceWorker)
+  {
+    try{
+      const reg = await navigator.serviceWorker.register('/sw.js')
+    }
+    catch(e){
+      console.log("SW register fail")
+    }
+  }
+})
 const app = () =>{
-  const song: any = document.querySelector('.song');
-const play: any = document.querySelector('.play');
-const outline: any = document.querySelector('.moving-outline circle');
-const video: any = document.querySelector('.video-container video');
-const pickTimeButtons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.time-selector button');
-const sounds: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.sound-picker button');
+  const song  = document.querySelector('.song');
+const play  = document.querySelector('.play');
+const outline  = document.querySelector('.moving-outline circle');
+const video  = document.querySelector('.video-container video');
+const pickTimeButtons= document.querySelectorAll('.time-selector button');
+const sounds = document.querySelectorAll('.sound-picker button');
 
-  const timeDisplay:any = document.querySelector('.time-display')
+  const timeDisplay = document.querySelector('.time-display')
   
   const outlineLength = outline?.getTotalLength();
   
@@ -21,7 +32,7 @@ const sounds: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.sound-
   play.addEventListener('click',() =>{
     check(song);
   })
-  pickTimeButtons.forEach((e)=>{e.addEventListener('click',(e:any) =>{
+  pickTimeButtons.forEach((e)=>{e.addEventListener('click',(e) =>{
     duration = e.srcElement.attributes[0].value;
     reset();
     currentTime = song.currentTime;
@@ -44,7 +55,7 @@ song.ontimeupdate = () =>{
   if(currentTime >= duration){
     song.paused;
     song.currentTime = 0;
-    play.src = './svg/play.svg';
+    play.src = './public/svg/play.svg';
     
     video.pause();
   }
@@ -60,21 +71,21 @@ sounds.forEach((elem)=>{
    
   })
 })
-const check = (song:any) =>{
+const check = (song) =>{
   if(song.paused){
-    play.src = './svg/pause.svg';
+    play.src = './public/svg/pause.svg';
     video.play();
     song.play();
   }
   else{
    
-    play.src = './svg/play.svg';
+    play.src = './public/svg/play.svg';
     video.pause();
     song.pause();
   }
 }
 const reset = () =>{
-  play.src = './svg/play.svg';
+  play.src = './public/svg/play.svg';
   elapsed = duration;
   song.pause();
   song.currentTime = 0;
