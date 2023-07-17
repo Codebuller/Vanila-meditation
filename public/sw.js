@@ -33,13 +33,10 @@ self.addEventListener('install', async e =>{
     await cache.addAll(assetsUrls)
 
 })
-self.addEventListener('activate', e =>{
-    
-})
 self.addEventListener('fetch',(e)=>{
     e.respondWith(cacheFirst(e.request))
 })
 async function cacheFirst(request){
     const cached = await caches.match(request)
-    return cached ?? await fetch(request)
+    return cached ?? await fetch(request) 
 }
