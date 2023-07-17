@@ -30,13 +30,31 @@ const assetsUrls = [
 self.addEventListener('install', async e =>{
 
     const cache = await caches.open(staticCacheName);
-    await cache.addAll(assetsUrls)
+    //await cache.addAll(assetsUrls)
+    await assetsUrls.map(async (el)=>{
+        try{
+            await cache.add(el)
+        }
+        catch(error){
+            console.log(el+'- не закеширован')
+        }
 
+    })
 })
 self.addEventListener('fetch',(e)=>{
     e.respondWith(cacheFirst(e.request))
 })
 async function cacheFirst(request){
     const cached = await caches.match(request)
-    return cached ?? await fetch(request) 
+    if(cached=== null || cached === undefined){
+    try{
+        const result =  await fetch(request);
+        return result;
+    }
+    catch(error){
+        console.log("Неполучилось запросить",request.url)
+    }
+}
+    else
+        return cached;
 }
