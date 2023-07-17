@@ -3,7 +3,7 @@ const assetsUrls = [
     'index.html',
     'main.js',
     '/style.css',
-    'manifest.json',
+    '/manifest.json',
     '/sounds/beach.mp3',
     '/sounds/rain.mp3',
     '/video/rain.mp4',
@@ -24,7 +24,7 @@ const assetsUrls = [
     "/icon/icon-192x192.png",
     "/icon/icon-284x284.png",
     "/icon/icon-512x512.png",
-    "sw.js" 
+    "/sw.js" 
    
 ]
 self.addEventListener('install', async e =>{
